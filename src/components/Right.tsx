@@ -13,8 +13,8 @@ const ForNow = ({ todo, index }: { todo: todo; index: number }) => {
         >
        <div className="flex w-full">
                 <span className=" ">{index + 1}</span> )
-                <p className="text-center w-full rounded-2xl text-xl font- text-white  ">{todo.todo}</p>
-                <p className="text-center w-full rounded-2xl text-xl font- text-white  ">{todo.time}</p>
+                <p className="text-center w-full rounded-2xl text-xl font- dark:text-white  ">{todo.todo}</p>
+                <p className="text-center w-full rounded-2xl text-xl font- dark:text-white  ">{todo.time}</p>
               </div>
         </div>
       )}

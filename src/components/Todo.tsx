@@ -7,12 +7,17 @@ import { todo } from "../types/Todo";
 import { contexType } from "../types/ContextType";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useSpring, animated } from 'react-spring'
+import ReactSwitch from "react-switch";
 
 
 export const context = createContext<contexType | null>(null); //Creating context hear
+type Props={
+  theme:string
+  setTheme: React.Dispatch<React.SetStateAction<string>>
+}
 
 // function starts hear
-const Todo = () => {
+const Todo = ({theme, setTheme} : Props) => {
   const [todo, setTodo] = useState<string>(""); //task
   const [time, setTime] = useState<string>(""); //Time
   //todo + time
@@ -88,7 +93,9 @@ const Todo = () => {
     delay: 200,
     onRest : () => setFlip(!flip)
   })
-
+  const backgroundImageUrl = theme === 'dark'
+  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSrgA2rAvqC-BK_INQeLkLllU1ptuVENpZkw&s"
+  :"https://images.unsplash.com/photo-1517639493569-5666a7b2f494?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lJTIwc2t5fGVufDB8fDB8fHww" ;
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <context.Provider
@@ -96,15 +103,15 @@ const Todo = () => {
       >
         <div className="flex-col h-full">
           <ToastContainer />
-          <div
-            className=" pt-16  bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1517639493569-5666a7b2f494?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lJTIwc2t5fGVufDB8fDB8fHww')",
-            }}
-          >
+          <div className="pt-16 bg-cover bg-center bg-no-repeat" style={{
+    backgroundImage: `url(${backgroundImageUrl})`
+  }}>
+
+    <div className="pr-10 flex justify-end">
+      <ReactSwitch onChange={()=>setTheme((pre)=> (pre === 'light'?'dark': 'light'))} checked={theme == 'dark'}/>
+    </div>
             <h1 className="font-extrabold text-3xl  dark:text-white text-center">
-            <animated.div style={props}>
+      <animated.div style={props}>
               TO DO LIST
       </animated.div>
             </h1>

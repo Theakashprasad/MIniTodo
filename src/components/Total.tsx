@@ -26,7 +26,7 @@ const Total = () => {
  
   return (
     <div>
-      <p className="font-mono">
+      <p className="font-mono dark:text-white">
         Total Time: {hours} hours {minutes} minutes
       </p>
    

@@ -22,10 +22,10 @@ const Todolist = () => {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="w-1/3 bg-blue-200 flex-col h-full border-2 border-black ml-44"
+            className="w-1/3 bg-blue-200 dark:bg-blue-900 flex-col h-full border-2 border-black ml-44"
           >
-            <div className="flex justify-center bg-sky-400 h-14 p-4 shadow-2xl">
-              <span className="font-bold">LEFT SIDE</span>
+            <div className="flex justify-center bg-sky-400 dark:bg-sky-900 h-14 p-4 shadow-2xl">
+              <span className="font-bold dark:text-white">LEFT SIDE</span>
             </div>
             <div className="pl-14 ">
               {todos.map((item, index) => (
@@ -42,10 +42,10 @@ const Todolist = () => {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="w-1/3 bg-blue-200 flex-col border-2 border-black"
+            className="w-1/3 bg-blue-200 dark:bg-blue-900 flex-col border-2 border-black"
           >
-            <div className="flex justify-center bg-sky-400 h-14 p-4 shadow-2xl">
-              <span className="font-bold">RIGHT SIDE</span>
+            <div className="flex justify-center bg-sky-400  dark:bg-sky-900 h-14 p-4 shadow-2xl">
+              <span className="font-bold dark:text-white">RIGHT SIDE</span>
             </div>
             <div className="text-center">
               <TotalTime />

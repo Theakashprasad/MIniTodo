@@ -33,13 +33,13 @@ const SubCal = () => {
     <div className="space-x-3"> 
 <button
   onClick={() => minusEachItem(5)}
-  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-xl text-sm transition duration-150 ease-in-out"
+  className="bg-red-500 hover:bg-red-700 dark:text-white font-bold py-1 px-2 rounded-xl text-sm transition duration-150 ease-in-out"
 >
   REMOVE 5
 </button>
 <button
   onClick={() => minusEachItem(10)}
-  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-xl text-sm transition duration-150 ease-in-out"
+  className="bg-red-500 hover:bg-red-700 dark:text-white font-bold py-1 px-2 rounded-xl text-sm transition duration-150 ease-in-out"
 >
   REMOVE 10
 </button>
