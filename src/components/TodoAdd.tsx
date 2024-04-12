@@ -1,6 +1,8 @@
 import { AddProps } from "../types/TodoAddType";
+import TrieExport from "./Trie";
 
 const TodoAdd = ({ todo, time, setTodo, setTime, handelAdd }: AddProps) => {
+
   return (
     <>
       <div className="flex justify-center mt-10 gap-5">
@@ -24,6 +26,9 @@ const TodoAdd = ({ todo, time, setTodo, setTime, handelAdd }: AddProps) => {
         >
           ADD
         </button>
+      </div>
+      <div className="text-center">
+        <TrieExport todo={todo} setTodo={setTodo}/>
       </div>
     </>
   );

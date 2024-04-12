@@ -20,9 +20,9 @@ type Props={
 const Todo = ({theme, setTheme} : Props) => {
   const [todo, setTodo] = useState<string>(""); //task
   const [time, setTime] = useState<string>(""); //Time
+
   //todo + time
   const [todos, setTodos] = useState<todo[]>([]);
-
   //for the new task Multiple
   const [completedTodos, setCompletedTodos] = useState<todo[]>([]);
 
@@ -49,7 +49,8 @@ const Todo = ({theme, setTheme} : Props) => {
   };
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-
+  console.log(result);
+  
     if (!destination) {
       return;
     }
@@ -70,7 +71,7 @@ const Todo = ({theme, setTheme} : Props) => {
       active.splice(source.index, 1);
     } else {
       add = complete[source.index];
-      complete.splice(source.index, 1);
+      complete.splice(source.index, 1); 
     }
 
     if (destination.droppableId === "TodoList") {
@@ -85,6 +86,7 @@ const Todo = ({theme, setTheme} : Props) => {
 
   const [flip, setFlip] = useState(false)
   
+  //for the transactions
   const props = useSpring({
     to: {opacity: 1},
     from: {opacity: 0},
@@ -93,9 +95,11 @@ const Todo = ({theme, setTheme} : Props) => {
     delay: 200,
     onRest : () => setFlip(!flip)
   })
+  //for the image
   const backgroundImageUrl = theme === 'dark'
   ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSrgA2rAvqC-BK_INQeLkLllU1ptuVENpZkw&s"
   :"https://images.unsplash.com/photo-1517639493569-5666a7b2f494?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lJTIwc2t5fGVufDB8fDB8fHww" ;
+ 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <context.Provider
